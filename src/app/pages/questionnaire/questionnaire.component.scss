@@ -1,0 +1,70 @@
+.questionnaire-div
+{
+    padding: 100px 30px 100px 30px;   
+}
+.bg-img
+{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: -1;    
+    object-fit: cover;
+    top: 0;
+}
+.questionnaire-card
+{
+    margin-bottom: 20px;
+}
+
+.action-btns
+{
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 10px;
+    left: 0;
+    right: 0;
+}
+
+.btn
+{
+    margin: 5px;
+    min-width: 100px;
+}
+
+.card-wrapper
+{
+    overflow: hidden;
+}
+
+.asterisk
+{
+   color: red;
+}
+
+.heading
+{
+    font-size: 32px;
+    overflow-wrap: anywhere;
+    color: #ffffff;
+}
+
+.description
+{
+    font-size: 22px;
+    overflow-wrap: anywhere;
+    color: #ffffff;
+}
+.title
+{
+    overflow-wrap: anywhere;
+}
+
+.reset
+{
+    color: #ffffff;
+    font-size: 35px;
+    position: fixed;
+    right: 16px;
+    top: 68px;
+}

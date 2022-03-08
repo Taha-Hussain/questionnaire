@@ -1,0 +1,13 @@
+<div *ngIf="answersArray.length">
+    <div *ngFor="let answerItem of answersArray;let i = index;">
+        <h4 class="question">{{i + 1}} - {{answerItem.question}}</h4>
+        <ul class="answer">
+            <li *ngFor="let item of answerItem.answer; ">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+</div>
+<div *ngIf="!answersArray.length">
+    <p>No data found.</p>
+</div>

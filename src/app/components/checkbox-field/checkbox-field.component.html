@@ -1,0 +1,4 @@
+<mat-checkbox *ngFor="let choice of question.choices;let i = index" class="checkbox-field" [(ngModel)]="choice.selected"
+    name="{{question.identifier}}-{{i}}">
+    {{choice.label}}
+</mat-checkbox>

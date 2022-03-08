@@ -1,0 +1,49 @@
+<form #questionnaireForm="ngForm">
+    <img src="/assets/images/background.png" class="bg-img" />
+    <mat-icon (click)="refreshForm()" class="reset">refresh</mat-icon>
+    <div class="questionnaire-div">
+        
+        <div class="text-center">
+            <h1 class="heading">{{data.name}}</h1>
+            <p class="description">{{data.description}}</p>
+        </div>
+        <div class="card-wrapper">
+            <div *ngFor="let question of data.questions; trackBy:identifier;" class="card-parent-div">
+                <mat-card *ngIf="question.identifier == selectedQuestion" class="questionnaire-card"
+                    [@showHideAnimation]="animationState">
+                    <mat-card-header>
+                        <mat-card-title class="text-center title">
+                            <span class="asterisk" *ngIf="question.required">
+                                <sup>*</sup>
+                            </span>
+                            {{question.headline}}
+                        </mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div *ngIf="question.question_type == 'multiple-choice' && question.multiple == 'false'">
+                            <app-radio-field [question]="question"></app-radio-field>
+                        </div>
+                        <div *ngIf="question.question_type == 'multiple-choice' && question.multiple == 'true'">
+                            <app-checkbox-field [question]="question"></app-checkbox-field>
+                        </div>
+                        <div *ngIf="question.question_type == 'text' && question.multiline == 'false'">
+                            <app-textbox-field [question]="question"></app-textbox-field>
+                        </div>
+                        <div *ngIf="question.question_type == 'text' && question.multiline == 'true'">
+                            <app-textarea-field [question]="question"></app-textarea-field>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+
+        <div class="action-btns">
+            <button [disabled]="history.length == 1" mat-raised-button color="accent" class="btn"
+                (click)="previous()">PREVIOUS</button>
+            <button *ngIf="!(identifierIndex == identifiers.length-1)" mat-raised-button color="primary" class="btn"
+                (click)="next(identifierIndex)">NEXT</button>
+            <button *ngIf="(identifierIndex == identifiers.length-1)" mat-raised-button color="primary" class="btn"
+                (click)="submit()">SUBMIT</button>
+        </div>
+    </div>
+</form>

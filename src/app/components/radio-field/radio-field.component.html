@@ -1,0 +1,6 @@
+<mat-radio-group class="radio-field" [(ngModel)]="question.answer"
+    [name]="question.identifier">
+    <mat-radio-button *ngFor="let choice of question.choices; let i = index" [value]="choice.value">
+        {{choice.label}}
+    </mat-radio-button>
+</mat-radio-group>
